@@ -11,4 +11,9 @@ This repo serves as a base to future projects. The main goal of this repo is to 
 
 - [Eslint](https://www.npmjs.com/package/eslint)
 - [Prettier](https://www.npmjs.com/package/prettier)
-- Husky: To format updated files automatically
+- [Husky](https://www.npmjs.com/package/husky): To format updated files automatically
+- [Pretty-quick](https://www.npmjs.com/package/pretty-quick)
+
+## Testing tools
+
+- [Jest](https://www.npmjs.com/package/jest)
