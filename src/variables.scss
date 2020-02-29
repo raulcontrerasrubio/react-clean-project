@@ -1,0 +1,9 @@
+$defaultFontSize: 1.6rem;
+$primaryColor: '#FFFFFF';
+$textColorPrimary: '#333';
+
+:export {
+  defaultFontSize: $defaultFontSize;
+  primaryColor: $primaryColor;
+  textColorPrimary: $textColorPrimary;
+}
