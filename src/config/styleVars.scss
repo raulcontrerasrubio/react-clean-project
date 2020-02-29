@@ -1,9 +1,11 @@
 $defaultFontSize: 1.6rem;
-$primaryColor: '#FFFFFF';
+$bgColor: '#FFFFFF';
 $textColorPrimary: '#333';
+$fontFamily: sans-serif;
 
 :export {
   defaultFontSize: $defaultFontSize;
-  primaryColor: $primaryColor;
+  bgColor: $bgColor;
   textColorPrimary: $textColorPrimary;
+  fontFamily: $fontFamily;
 }
