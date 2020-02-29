@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "flow-bin": "^0.119.1",
     "history": "^4.10.1",
     "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
@@ -18,7 +19,8 @@
     "preinstall": "node -e \"!process.env.npm_config_user_agent.startsWith('npm/') && !console.log('---- USE NPM TO INSTALL DEPENDENCIES ----') && process.exit(1)\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-app-rewired test --env=jsdom"
+    "test": "react-app-rewired test --env=jsdom",
+    "flow": "flow"
   },
   "husky": {
     "hooks": {
