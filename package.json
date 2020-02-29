@@ -12,8 +12,11 @@
     "normalize.css": "^8.0.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "preinstall": "node -e \"!process.env.npm_config_user_agent.startsWith('npm/') && !console.log('---- USE NPM TO INSTALL DEPENDENCIES ----') && process.exit(1)\"",
