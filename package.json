@@ -14,8 +14,7 @@
     "preinstall": "node -e \"!process.env.npm_config_user_agent.startsWith('npm/') && !console.log('---- USE NPM TO INSTALL DEPENDENCIES ----') && process.exit(1)\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-app-rewired test --env=jsdom"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,5 +30,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
+    "customize-cra": "^0.9.1",
+    "react-app-rewired": "^2.1.5"
   }
 }
