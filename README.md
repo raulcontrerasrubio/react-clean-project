@@ -30,3 +30,5 @@ This repo serves as a base to future projects. The main goal of this repo is to 
 3. Replace the app icons (You can use [Favicon generator](https://www.favicon-generator.org/) to work less on renaming all of the icons)
 4. Change the `/public/favicon.ico`
 5. Change the TileColor property on `browserconfig.xml`
+
+Checkout the [Manifest documentation](https://web.dev/add-manifest/)
