@@ -9,13 +9,13 @@ import history from './config/history';
 import {Provider as ReduxProvider} from 'react-redux';
 import store from './redux/store';
 import ErrorBoundary from 'react-error-boundary';
-import AppErrorBoundary from './components/ErrorBoundaries/AppErrorBoundary/AppErrorBoundary';
+import AppError from './components/ErrorPages/AppError/AppError';
 import './config/icons';
 
 const initialComponent = (
   <ReduxProvider store={store}>
     <Router history={history}>
-      <ErrorBoundary FallbackComponent={AppErrorBoundary}>
+      <ErrorBoundary FallbackComponent={AppError}>
         <App />
       </ErrorBoundary>
     </Router>
