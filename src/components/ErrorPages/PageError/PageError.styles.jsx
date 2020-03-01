@@ -6,7 +6,7 @@ export const Styles = styled.main`
   justify-content: center;
   align-items: center;
 
-  .AppError {
+  .PageError {
     display: flex;
     flex-direction: column;
     align-items: center;

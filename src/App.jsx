@@ -7,6 +7,7 @@ import {appHasLoaded} from './redux/app/app.actions';
 import AppLoadingPage from './components/LoadingPages/AppLoadingPage/AppLoadingPage';
 import AppError from './components/ErrorPages/AppError/AppError';
 import PageLoad from './components/Animations/PageLoad/PageLoad';
+import {MIN_SPLASH_SCREEN_TIME} from './config/config';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,10 @@ const App = () => {
 
   useEffect(() => {
     if (!reduxState.appHasLoaded) {
-      appLoader()
+      const appOptions = {
+        splashScreenTime: MIN_SPLASH_SCREEN_TIME,
+      };
+      appLoader(appOptions)
         .catch(() => {
           setAppError(true);
         })

@@ -1,14 +1,14 @@
 import React from 'react';
-import {Styles} from './AppError.styles';
+import {Styles} from './PageError.styles';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Card from '../../UI/Card/Card';
 
-const AppError = () => {
+const PageError = () => {
   return (
     <Styles>
-      <Card className='AppError'>
+      <Card className='PageError'>
         <FontAwesomeIcon icon='exclamation-triangle' className='_errorIcon' />
-        <p className='_errorMessage'>An error happened when the app was loading</p>
+        <p className='_errorMessage'>An error happened when the page was loading</p>
         <p className='_errorMessage'>
           <a href='/'>You can reload the page</a>
         </p>
@@ -17,4 +17,4 @@ const AppError = () => {
   );
 };
 
-export default AppError;
+export default PageError;

@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {animated, useTransition} from 'react-spring';
 
 const PageLoad = ({isLoading, hasError, onErrorComponent, onSuccessComponent, onLoadComponent, transitionStyles}) => {
   const loadingAnimation = useTransition(isLoading, null, transitionStyles);
-
-  const loadedComponent = hasError ? onErrorComponent : onSuccessComponent;
+  const loadedComponent = useMemo(() => (hasError ? onErrorComponent : onSuccessComponent), [
+    hasError,
+    onErrorComponent,
+    onSuccessComponent,
+  ]);
 
   if (isLoading) {
     return loadingAnimation.map(
