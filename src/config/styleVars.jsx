@@ -1,8 +1,3 @@
-import {defaultFontSize, bgColor, textColorPrimary, fontFamily} from './styleVars.scss';
+import {defaultFontSize, bgColor, textColorPrimary, fontFamily, dangerColor, errorColor} from './styleVars.scss';
 
-export default {
-  defaultFontSize,
-  bgColor,
-  textColorPrimary,
-  fontFamily,
-};
+export {defaultFontSize, bgColor, textColorPrimary, fontFamily, dangerColor, errorColor};

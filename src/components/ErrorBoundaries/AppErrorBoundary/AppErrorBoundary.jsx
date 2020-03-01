@@ -1,12 +1,15 @@
 import React from 'react';
 import {Styles} from './AppErrorBoundary.styles';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import Card from '../../UI/Card/Card';
 
 const AppErrorBoundary = () => {
   return (
     <Styles>
-      <FontAwesomeIcon icon='exclamation-triangle' className='_errorIcon' />
-      <p className='_errorMessage'>En error happened when loading the app</p>
+      <Card className='AppErrorBoundary'>
+        <FontAwesomeIcon icon='exclamation-triangle' className='_errorIcon' />
+        <p className='_errorMessage'>An error happened when the app was loading</p>
+      </Card>
     </Styles>
   );
 };
