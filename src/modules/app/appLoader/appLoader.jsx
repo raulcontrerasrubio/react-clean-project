@@ -1,12 +1,13 @@
-const appLoader = async () => {
-  return new Promise((resolve, reject) => {
+import {MIN_SPLASH_SCREEN_TIME} from '../../../config/config';
+
+const appLoader = () => {
+  const minSplashTime = new Promise(resolve => {
     setTimeout(() => {
-      if (false) {
-        return reject();
-      }
-      return resolve();
-    }, 2 * 1000);
+      resolve();
+    }, MIN_SPLASH_SCREEN_TIME);
   });
+
+  return Promise.all([minSplashTime]);
 };
 
 export default appLoader;
