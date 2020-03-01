@@ -8,11 +8,12 @@
   },
   "plugins": [
     "react",
+    "flowtype",
     "react-hooks",
     "prettier",
     "jest"
   ],
-  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended", "plugin:jest/recommended", "plugin:jest/style"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:flowtype/recommended", "plugin:prettier/recommended", "plugin:jest/recommended", "plugin:jest/style"],
   "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module",

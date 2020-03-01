@@ -7,6 +7,8 @@ This repo serves as a base to future projects. The main goal of this repo is to 
 - [Optional Chaining](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining)
 - [Nullish Coalescing Operator](https://babeljs.io/docs/en/babel-plugin-proposal-nullish-coalescing-operator)
 
+## Dependencies
+
 ## Development dependencies
 
 - [Eslint](https://www.npmjs.com/package/eslint)
