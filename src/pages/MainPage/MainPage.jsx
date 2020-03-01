@@ -1,11 +1,14 @@
 import React from 'react';
+import PageLoad from '../../components/Animations/PageLoad/PageLoad';
 
 const MainPage = () => {
-  return (
+  const loadedComponent = (
     <div>
       <p>Main Page</p>
     </div>
   );
+
+  return <PageLoad onSuccessComponent={loadedComponent} />;
 };
 
 export default MainPage;

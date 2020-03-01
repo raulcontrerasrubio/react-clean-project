@@ -6,6 +6,7 @@ export const Styles = styled.main`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
 
   ._logo {
     display: flex;

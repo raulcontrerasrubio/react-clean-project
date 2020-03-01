@@ -6,6 +6,7 @@ import {appLoader} from './modules/app/index';
 import {appHasLoaded} from './redux/app/app.actions';
 import AppLoadingPage from './components/LoadingPages/AppLoadingPage/AppLoadingPage';
 import AppError from './components/ErrorPages/AppError/AppError';
+import PageLoad from './components/Animations/PageLoad/PageLoad';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -15,24 +16,24 @@ const App = () => {
   useEffect(() => {
     if (!reduxState.appHasLoaded) {
       appLoader()
-        .then(() => {
-          dispatch(appHasLoaded());
-        })
         .catch(() => {
           setAppError(true);
+        })
+        .finally(() => {
+          dispatch(appHasLoaded());
         });
     }
   }, [dispatch, reduxState.appHasLoaded]);
 
-  if (appError) {
-    return <AppError />;
-  }
-
-  if (!reduxState.appHasLoaded) {
-    return <AppLoadingPage />;
-  }
-
-  return <Navigation />;
+  return (
+    <PageLoad
+      isLoading={!reduxState.appHasLoaded}
+      hasError={appError}
+      onLoadComponent={<AppLoadingPage />}
+      onSuccessComponent={<Navigation />}
+      onErrorComponent={<AppError />}
+    />
+  );
 };
 
 export default App;

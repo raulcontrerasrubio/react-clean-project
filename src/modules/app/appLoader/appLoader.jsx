@@ -5,7 +5,7 @@ const appLoader = async () => {
         return reject();
       }
       return resolve();
-    }, 5 * 1000);
+    }, 2 * 1000);
   });
 };
 
