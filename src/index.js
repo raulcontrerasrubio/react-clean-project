@@ -6,11 +6,20 @@ import App from './App.jsx';
 import * as serviceWorker from './serviceWorker';
 import {Router} from 'react-router-dom';
 import history from './config/history';
+import {Provider as ReduxProvider} from 'react-redux';
+import store from './redux/store';
+import ErrorBoundary from 'react-error-boundary';
+import AppErrorBoundary from './components/ErrorBoundaries/AppErrorBoundary/AppErrorBoundary';
+import './config/icons';
 
 const initialComponent = (
-  <Router history={history}>
-    <App />
-  </Router>
+  <ReduxProvider store={store}>
+    <Router history={history}>
+      <ErrorBoundary FallbackComponent={AppErrorBoundary}>
+        <App />
+      </ErrorBoundary>
+    </Router>
+  </ReduxProvider>
 );
 
 ReactDOM.render(initialComponent, document.getElementById('root'));
