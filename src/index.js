@@ -11,6 +11,7 @@ import store from './redux/store';
 import ErrorBoundary from 'react-error-boundary';
 import AppError from './components/ErrorPages/AppError/AppError';
 import './config/icons';
+import './lang/i18n';
 
 const initialComponent = (
   <ReduxProvider store={store}>
