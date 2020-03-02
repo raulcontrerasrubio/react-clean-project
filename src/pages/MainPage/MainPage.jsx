@@ -7,7 +7,7 @@ import {ThemeContext} from '../../themes/ThemeContext';
 import styled from 'styled-components';
 
 const Styles = styled.div`
-  background-color: ${({theme}) => theme.bgColorPrimary};
+  background-color: ${({theme}) => theme.bgColor};
 `;
 
 const MainPage = () => {
@@ -18,7 +18,7 @@ const MainPage = () => {
     () => (
       <Styles theme={theme}>
         <p onClick={() => i18n.changeLanguage('es')}>
-          {t('app:test')} <Apple onClick={() => setTheme('dark')} /> <AcUnit />
+          {t('app:test')} <Apple onClick={() => setTheme('dark')} /> <AcUnit onClick={() => setTheme('light')} />
         </p>
       </Styles>
     ),

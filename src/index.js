@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css';
-import './index.scss';
 import App from './App.jsx';
 import * as serviceWorker from './serviceWorker';
 import {Router} from 'react-router-dom';
