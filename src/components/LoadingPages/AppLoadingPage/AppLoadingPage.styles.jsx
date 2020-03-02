@@ -7,6 +7,7 @@ export const Styles = styled.main`
   align-items: center;
   height: 100vh;
   overflow: hidden;
+  background-color: ${({theme}) => theme.bgColor};
 
   ._logo {
     display: flex;
