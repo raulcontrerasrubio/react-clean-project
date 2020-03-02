@@ -11,7 +11,7 @@ export const Styles = styled.main`
     flex-direction: column;
     align-items: center;
     margin-top: 3rem;
-    background-color: ${bgColor};
+    background-color: ${({theme}) => theme.bgColorPrimary};
 
     & ._errorIcon {
       color: ${errorColor};

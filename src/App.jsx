@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import './App.scss';
 import {Navigation} from './config/Navigation';
 import {useSelector, useDispatch} from 'react-redux';
@@ -8,10 +8,12 @@ import AppLoadingPage from './components/LoadingPages/AppLoadingPage/AppLoadingP
 import AppError from './components/ErrorPages/AppError/AppError';
 import PageLoad from './components/Animations/PageLoad/PageLoad';
 import {MIN_SPLASH_SCREEN_TIME} from './config/config';
+import {ThemeContext} from './themes/ThemeContext';
 
 const App = () => {
   const dispatch = useDispatch();
   const reduxState = useSelector(state => state.app);
+  const {theme} = useContext(ThemeContext);
   const [appError, setAppError] = useState(false);
 
   useEffect(() => {
@@ -33,9 +35,9 @@ const App = () => {
     <PageLoad
       isLoading={!reduxState.appHasLoaded}
       hasError={appError}
-      onLoadComponent={<AppLoadingPage />}
+      onLoadComponent={<AppLoadingPage theme={theme} />}
       onSuccessComponent={<Navigation />}
-      onErrorComponent={<AppError />}
+      onErrorComponent={<AppError theme={theme} />}
     />
   );
 };

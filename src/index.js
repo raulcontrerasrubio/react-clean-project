@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import {Router} from 'react-router-dom';
 import history from './config/history';
 import {Provider as ReduxProvider} from 'react-redux';
+import {ThemeProvider} from './themes/ThemeContext';
 import store from './redux/store';
 import ErrorBoundary from 'react-error-boundary';
 import AppError from './components/ErrorPages/AppError/AppError';
@@ -16,9 +17,11 @@ import './lang/i18n';
 const initialComponent = (
   <ReduxProvider store={store}>
     <Router history={history}>
-      <ErrorBoundary FallbackComponent={AppError}>
-        <App />
-      </ErrorBoundary>
+      <ThemeProvider>
+        <ErrorBoundary FallbackComponent={AppError}>
+          <App />
+        </ErrorBoundary>
+      </ThemeProvider>
     </Router>
   </ReduxProvider>
 );
