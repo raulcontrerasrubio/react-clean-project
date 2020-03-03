@@ -1,4 +1,4 @@
-import React, {useMemo, useContext} from 'react';
+import React, {useMemo, useContext, useCallback} from 'react';
 import PageLoad from '../../components/Animations/PageLoad/PageLoad';
 import {useTranslation} from 'react-i18next';
 import {Apple} from '@material-ui/icons';
@@ -14,15 +14,34 @@ const MainPage = () => {
   const {theme, setTheme} = useContext(ThemeContext);
   const {t, i18n} = useTranslation();
 
+  const changeLanguage = useCallback(() => {
+    if (i18n.language) {
+      switch (i18n.language) {
+        case 'en': {
+          return i18n.changeLanguage('es');
+        }
+        case 'es': {
+          return i18n.changeLanguage('en');
+        }
+        default:
+          return i18n.changeLanguage('en');
+      }
+    }
+  }, [i18n]);
+
   const loadedComponent = useMemo(
     () => (
       <Styles theme={theme}>
-        <p onClick={() => i18n.changeLanguage('es')}>
-          {t('app:test')} <Apple onClick={() => setTheme('dark')} /> <AcUnit onClick={() => setTheme('light')} />
-        </p>
+        <h1 onClick={changeLanguage}>{t('app:test')}</h1>
+        <h2>
+          <Apple onClick={() => setTheme('dark')} />
+        </h2>
+        <h2>
+          <AcUnit onClick={() => setTheme('light')} />
+        </h2>
       </Styles>
     ),
-    [t, i18n, theme, setTheme]
+    [t, theme, setTheme, changeLanguage]
   );
 
   return <PageLoad onSuccessComponent={loadedComponent} />;

@@ -19,6 +19,7 @@ i18n
     whitelist: ['en', 'es'],
     ns: ['app'],
     defaultNS: ['app'],
+    keySeparator: '.',
     fallbackLng: 'en',
     debug: false,
 
