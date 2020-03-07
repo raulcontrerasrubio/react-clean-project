@@ -7,10 +7,10 @@ import {ThemeContext} from '../../themes/ThemeContext';
 import styled from 'styled-components';
 
 const Styles = styled.div`
-  background-color: ${({theme}) => theme.bgColor};
+  background-color: ${({theme}) => theme.bgColorPrimary};
 `;
 
-const MainPage = () => {
+const MainPage = props => {
   const {theme, setTheme} = useContext(ThemeContext);
   const {t, i18n} = useTranslation();
 
@@ -31,7 +31,7 @@ const MainPage = () => {
 
   const loadedComponent = useMemo(
     () => (
-      <Styles theme={theme}>
+      <Styles theme={theme} {...props}>
         <h1 onClick={changeLanguage}>{t('app:test')}</h1>
         <h2>
           <Apple onClick={() => setTheme('dark')} />
@@ -41,7 +41,7 @@ const MainPage = () => {
         </h2>
       </Styles>
     ),
-    [t, theme, setTheme, changeLanguage]
+    [t, theme, setTheme, changeLanguage, props]
   );
 
   return <PageLoad onSuccessComponent={loadedComponent} />;

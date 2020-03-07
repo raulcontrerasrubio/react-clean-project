@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 import {Styles} from './Card.styles';
-import Theme from '../../../themes/Theme';
+import {ThemeContext} from '../../../themes/ThemeContext';
 
-const Card = ({children, theme, ...props}) => {
+const Card = ({children, ...props}) => {
+  const {theme} = useContext(ThemeContext);
   return (
     <Styles theme={theme} {...props}>
       {children}
@@ -13,7 +14,6 @@ const Card = ({children, theme, ...props}) => {
 
 Card.propTypes = {
   children: PropTypes.node.isRequired,
-  theme: PropTypes.instanceOf(Theme),
 };
 
 export default Card;

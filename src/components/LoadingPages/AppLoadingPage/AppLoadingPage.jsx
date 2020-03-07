@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {useContext} from 'react';
 import {Styles} from './AppLoadingPage.styles';
 import logo from '../../../assets/images/logo.png';
-import Theme from '../../../themes/Theme';
+import {ThemeContext} from '../../../themes/ThemeContext';
 
-const AppLoadingPage = ({theme, ...props}) => {
+const AppLoadingPage = props => {
+  const {theme} = useContext(ThemeContext);
   return (
     <Styles theme={theme} {...props}>
       <div className='_logo'>
@@ -14,10 +14,6 @@ const AppLoadingPage = ({theme, ...props}) => {
       </div>
     </Styles>
   );
-};
-
-AppLoadingPage.propTypes = {
-  theme: PropTypes.instanceOf(Theme),
 };
 
 export default AppLoadingPage;

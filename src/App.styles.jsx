@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
+import colorWithOpacity from './modules/helpers/colorWithOpacity/colorWithOpacity';
 
-const AppStyles = styled.div`
+const AppStyles = createGlobalStyle`
   *,
   *:before,
   *:after {
@@ -14,11 +15,22 @@ const AppStyles = styled.div`
 
   body {
     font-size: ${({theme}) => theme.fontSize};
-    color: ${({theme}) => theme.textColor};
-    background-color: ${({theme}) => theme.bgColor};
+    color: ${({theme}) => theme.textColorPrimary};
+    background-color: ${({theme}) => theme.bgColorPrimary};
     font-family: ${({theme}) => theme.fontFamily};
     margin: 0;
     padding: 0;
+  }
+
+  a{
+    color: ${({theme}) => theme.textColorPrimary};
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 300ms ease-in-out;
+  }
+
+  a:hover, a:active{
+    color: ${({theme}) => colorWithOpacity(theme.textColorPrimary, 75)};
   }
 `;
 

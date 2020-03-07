@@ -1,20 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {useContext} from 'react';
 import {Styles} from './ResizingPage.styles';
-import Theme from '../../../themes/Theme';
 import {useTranslation} from 'react-i18next';
+import {ThemeContext} from '../../../themes/ThemeContext';
 
-const ResizingPage = ({theme}) => {
+const ResizingPage = () => {
   const {t} = useTranslation();
+  const {theme} = useContext(ThemeContext);
   return (
     <Styles theme={theme}>
       <h1 className='_message'>{t('app:components.loading.resizing.message')}</h1>
     </Styles>
   );
-};
-
-ResizingPage.propTypes = {
-  theme: PropTypes.instanceOf(Theme),
 };
 
 export default ResizingPage;

@@ -1,7 +1,9 @@
 import React, {createContext, useState, useMemo, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import themes from './index';
-export const Context = createContext();
+
+const Context = createContext();
+
 const defaultTheme = themes[process.env.REACT_APP_DEFAULT_THEME] || themes.light;
 
 const Provider = ({children}) => {

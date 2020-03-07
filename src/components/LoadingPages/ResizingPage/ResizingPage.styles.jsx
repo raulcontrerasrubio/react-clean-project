@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 export const Styles = styled.div`
   position: absolute;
-  background-color: ${({theme}) => theme.bgColor};
+  background-color: ${({theme}) => theme.bgColorPrimary};
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -12,7 +12,12 @@ export const Styles = styled.div`
   align-items: center;
 
   & > ._message {
-    color: ${({theme}) => theme.textColor};
+    color: ${({theme}) => theme.textColorPrimary};
     font-size: 3.2rem;
   }
+
+  ${props =>
+    css`
+      ${props.css}
+    `};
 `;
