@@ -12,6 +12,7 @@ import AppStyles from './App.styles';
 import FadeInOut from './components/Animations/FadeInOut/FadeInOut';
 import useResizing from './hooks/useResizing';
 import ResizingPage from './components/LoadingPages/ResizingPage/ResizingPage';
+import ErrorBoundary from 'react-error-boundary';
 
 const RESIZING_REFRESH_TIME = +process.env.REACT_APP_RESIZE_REFRESH_TIME || 750;
 
@@ -41,24 +42,27 @@ const App = () => {
     () => (
       <>
         <FadeInOut activate={resizing}>
-          <ResizingPage theme={theme} />
+          <ResizingPage />
         </FadeInOut>
         <Navigation />
       </>
     ),
-    [resizing, theme]
+    [resizing]
   );
 
   return (
-    <AppStyles theme={theme}>
-      <PageLoad
-        isLoading={!reduxState.appHasLoaded}
-        hasError={appError}
-        onLoadComponent={<AppLoadingPage theme={theme} />}
-        onSuccessComponent={onSuccess}
-        onErrorComponent={<AppError theme={theme} />}
-      />
-    </AppStyles>
+    <>
+      <AppStyles theme={theme} />
+      <ErrorBoundary FallbackComponent={AppError}>
+        <PageLoad
+          isLoading={!reduxState.appHasLoaded}
+          hasError={appError}
+          onLoadComponent={<AppLoadingPage />}
+          onSuccessComponent={onSuccess}
+          onErrorComponent={<AppError />}
+        />
+      </ErrorBoundary>
+    </>
   );
 };
 

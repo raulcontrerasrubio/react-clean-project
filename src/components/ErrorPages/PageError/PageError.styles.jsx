@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-import {bgColor, errorColor} from '../../../config/styleVars';
+import styled, {css} from 'styled-components';
 
 export const Styles = styled.main`
   display: flex;
@@ -11,18 +10,24 @@ export const Styles = styled.main`
     flex-direction: column;
     align-items: center;
     margin-top: 3rem;
-    background-color: ${bgColor};
+    background-color: ${theme => theme.bgColorPrimary};
 
-    & ._errorIcon {
-      color: ${errorColor};
+    &__errorIcon {
+      color: ${theme => theme.error};
       font-size: 5.4rem;
       margin: 2rem;
     }
 
-    & ._errorMessage {
+    &__errorMessage {
       text-align: center;
       font-size: 2.4rem;
       margin: 2rem;
+      color: ${theme => theme.textColorPrimary};
     }
   }
+
+  ${props =>
+    css`
+      ${props.css}
+    `};
 `;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 export const Styles = styled.main`
   display: flex;
@@ -7,7 +7,7 @@ export const Styles = styled.main`
   align-items: center;
   height: 100vh;
   overflow: hidden;
-  background-color: ${({theme}) => theme.bgColor};
+  background-color: ${({theme}) => theme.bgColorPrimary};
 
   ._logo {
     display: flex;
@@ -29,4 +29,9 @@ export const Styles = styled.main`
       object-fit: contain;
     }
   }
+
+  ${props =>
+    css`
+      ${props.css}
+    `};
 `;

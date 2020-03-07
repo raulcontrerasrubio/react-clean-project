@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 export const Styles = styled.main`
   display: flex;
@@ -10,18 +10,24 @@ export const Styles = styled.main`
     flex-direction: column;
     align-items: center;
     margin-top: 3rem;
-    background-color: ${({theme}) => theme.bgColor};
+    background-color: ${({theme}) => theme.bgColorPrimary};
 
-    & ._errorIcon {
+    &__errorIcon {
       color: ${({theme}) => theme.error};
       font-size: 5.4rem;
       margin: 2rem;
     }
 
-    & ._errorMessage {
+    &__errorMessage {
       text-align: center;
       font-size: 2.4rem;
       margin: 2rem;
+      color: ${theme => theme.textColorPrimary};
     }
   }
+
+  ${props =>
+    css`
+      ${props.css}
+    `};
 `;

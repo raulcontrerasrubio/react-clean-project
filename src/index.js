@@ -13,19 +13,21 @@ import AppError from './components/ErrorPages/AppError/AppError';
 import './config/icons';
 import './lang/i18n';
 
-const initialComponent = (
-  <ReduxProvider store={store}>
-    <Router history={history}>
-      <ThemeProvider>
-        <ErrorBoundary FallbackComponent={AppError}>
-          <App />
-        </ErrorBoundary>
-      </ThemeProvider>
-    </Router>
-  </ReduxProvider>
-);
+const InitialComponent = () => {
+  return (
+    <ReduxProvider store={store}>
+      <Router history={history}>
+        <ThemeProvider>
+          <ErrorBoundary FallbackComponent={AppError}>
+            <App />
+          </ErrorBoundary>
+        </ThemeProvider>
+      </Router>
+    </ReduxProvider>
+  );
+};
 
-ReactDOM.render(initialComponent, document.getElementById('root'));
+ReactDOM.render(<InitialComponent />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
