@@ -4,7 +4,11 @@ import {Styles} from './MainPageMobile.styles';
 import Theme from '../../../../themes/Theme';
 
 const MainPageMobile = ({theme}) => {
-  return <Styles theme={theme}></Styles>;
+  return (
+    <Styles theme={theme}>
+      <p>MainPageMobile</p>
+    </Styles>
+  );
 };
 
 MainPageMobile.propTypes = {

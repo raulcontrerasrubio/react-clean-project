@@ -4,7 +4,11 @@ import {Styles} from './RememberPasswordDesktop.styles';
 import Theme from '../../../../themes/Theme';
 
 const RememberPasswordDesktop = ({theme}) => {
-  return <Styles theme={theme}></Styles>;
+  return (
+    <Styles theme={theme}>
+      <p>RememberPasswordDesktop</p>
+    </Styles>
+  );
 };
 
 RememberPasswordDesktop.propTypes = {

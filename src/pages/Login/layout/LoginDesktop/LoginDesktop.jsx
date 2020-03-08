@@ -4,7 +4,11 @@ import {Styles} from './LoginDesktop.styles';
 import Theme from '../../../../themes/Theme';
 
 const LoginDesktop = ({theme}) => {
-  return <Styles theme={theme}></Styles>;
+  return (
+    <Styles theme={theme}>
+      <p>Login Desktop</p>
+    </Styles>
+  );
 };
 
 LoginDesktop.propTypes = {
