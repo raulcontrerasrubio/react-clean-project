@@ -1,8 +1,8 @@
-const appLoader = options => {
+const appLoader = async options => {
   let {splashScreenTime} = options;
   splashScreenTime = splashScreenTime || 0;
 
-  const minSplashTime = splashScreenTime
+  const minSplashTimePromise = splashScreenTime
     ? new Promise(resolve => {
         setTimeout(() => {
           resolve();
@@ -10,7 +10,16 @@ const appLoader = options => {
       })
     : Promise.resolve();
 
-  return Promise.all([minSplashTime]);
+  const loginPromise = new Promise(resolve => {
+    return resolve('Userid1234xyz');
+  });
+
+  const [splash, login] = await Promise.all([minSplashTimePromise, loginPromise]);
+
+  return {
+    splashResponse: splash,
+    loggedUserId: login,
+  };
 };
 
 export default appLoader;
