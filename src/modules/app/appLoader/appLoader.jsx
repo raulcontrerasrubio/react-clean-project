@@ -11,7 +11,7 @@ const appLoader = async options => {
     : Promise.resolve();
 
   const loginPromise = new Promise(resolve => {
-    return resolve('Userid1234xyz');
+    return resolve(null);
   });
 
   const [splash, login] = await Promise.all([minSplashTimePromise, loginPromise]);

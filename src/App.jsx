@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext, useMemo} from 'react';
-import {Navigation} from './config/Navigation';
+import Navigation from './config/Navigation';
 import {useSelector, useDispatch} from 'react-redux';
 import {appLoader} from './modules/app/index';
 import {appHasLoaded} from './redux/app/app.actions';
@@ -48,10 +48,10 @@ const App = () => {
         <FadeInOut activate={resizing}>
           <ResizingPage />
         </FadeInOut>
-        <Navigation />
+        <Navigation userLoggedId={reduxState.loggedUserId} />
       </>
     ),
-    [resizing]
+    [resizing, reduxState.loggedUserId]
   );
 
   return (
