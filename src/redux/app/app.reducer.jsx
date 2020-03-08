@@ -1,7 +1,8 @@
-import {APP_LOADED} from './app.types';
+import {APP_LOADED, SET_LOGGED_USER} from './app.types';
 
 const initialState = {
   appHasLoaded: false,
+  loggedUserId: null,
 };
 
 export default (state = initialState, action) => {
@@ -10,6 +11,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         appHasLoaded: true,
+      };
+    }
+    case SET_LOGGED_USER: {
+      return {
+        ...state,
+        loggedUserId: action.payload,
       };
     }
     default: {

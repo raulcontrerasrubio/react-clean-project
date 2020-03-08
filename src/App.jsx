@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext, useMemo} from 'react';
-import {Navigation} from './config/Navigation';
+import Navigation from './config/Navigation';
 import {useSelector, useDispatch} from 'react-redux';
 import {appLoader} from './modules/app/index';
 import {appHasLoaded} from './redux/app/app.actions';
@@ -13,6 +13,7 @@ import FadeInOut from './components/Animations/FadeInOut/FadeInOut';
 import useResizing from './hooks/useResizing';
 import ResizingPage from './components/LoadingPages/ResizingPage/ResizingPage';
 import ErrorBoundary from 'react-error-boundary';
+import {setLoggedUser} from './redux/app/app.actions';
 
 const RESIZING_REFRESH_TIME = +process.env.REACT_APP_RESIZE_REFRESH_TIME || 750;
 
@@ -29,6 +30,9 @@ const App = () => {
         splashScreenTime: MIN_SPLASH_SCREEN_TIME,
       };
       appLoader(appOptions)
+        .then(({loggedUserId}) => {
+          dispatch(setLoggedUser(loggedUserId));
+        })
         .catch(() => {
           setAppError(true);
         })
@@ -44,10 +48,10 @@ const App = () => {
         <FadeInOut activate={resizing}>
           <ResizingPage />
         </FadeInOut>
-        <Navigation />
+        <Navigation userLoggedId={reduxState.loggedUserId} />
       </>
     ),
-    [resizing]
+    [resizing, reduxState.loggedUserId]
   );
 
   return (
